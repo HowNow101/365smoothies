@@ -3,54 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>365 Delicious Smoothies</title>
-    <link rel="stylesheet" href="style.css">
+    <title>365 Delicious Smoothies - Your Daily Wellness Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f9fbfa;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(46, 204, 113, 0.8), rgba(46, 204, 113, 0.8)),
+                        url('https://via.placeholder.com/1920x1080/27ae60/ffffff?text=Smoothie+Hero') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.7rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            line-height: 1.4;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .benefits-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            padding: 2rem;
+            border-radius: 10px;
+            background: #f5fbf8;
+            text-align: center;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .benefit-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .benefit-card li {
+            margin: 1.2rem 0;
+            font-size: 1.1rem;
+            color: #34495e;
+        }
+
+        /* Product Cards */
+        .products {
+            padding: 4rem 2rem;
+            background: #f5fbf8;
+        }
+
+        .product-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 300px;
+            background: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .product-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .product-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #7f8c8d;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .ebook-btn {
+            background: #27ae60;
+            color: white;
+        }
+
+        .print-btn {
+            background: #2980b9;
+            color: white;
+        }
+
+        /* Bonus Banner */
+        .banner {
+            padding: 5rem 2rem;
+            background: linear-gradient(rgba(231, 76, 60, 0.9), rgba(231, 76, 60, 0.9)),
+                        url('https://via.placeholder.com/1920x600/e74c3c/ffffff?text=21-Day+Challenge') center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .banner p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .bonus-btn {
+            background: white;
+            color: #e74c3c;
+            font-size: 1.2rem;
+            padding: 1.3rem 3rem;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            background: white;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .banner h2 {
+                font-size: 2rem;
+            }
+            
+            .benefit-card li {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <header>
-        <h1>365 Delicious Smoothies</h1>
-        <p>Your one-stop guide to wellness, energy, and balance.</p>
-    </header>
-
-    <section class="cards">
-        <div class="card">
-            <img src="placeholder-ebook.jpg" alt="Ebook Cover">
-            <h2>Ebook Version</h2>
-            <p>Get instant access to 365 delicious smoothie recipes! Perfect for reading on your tablet, phone, or computer.</p>
-            <p>Price: £8.99 / $10.99 (Prices may vary)</p>
-            <a href="https://payhip.com/b/k9d1g" class="button">Get the Ebook</a>
-        </div>
-
-        <div class="card">
-            <img src="placeholder-print.jpg" alt="Print Book Cover">
-            <h2>Print Version</h2>
-            <p>Enjoy the tactile experience of a beautiful, physical cookbook.  Perfect for your kitchen!</p>
-            <p>Price: £9.30 / $11.99 (Prices may vary)</p>
-            <a href="https://amzn.to/4hOAtEW" class="button">Buy the Print Book</a>
-        </div>
-
-        <div class="card">
-            <img src="placeholder-weightloss.jpg" alt="Weight Loss Smoothie">
-            <h2>Rapid Weight Loss Smoothie Guide</h2>
-            <p>Discover easy-to-make smoothies designed for rapid weight loss, increased energy, and incredible health!</p>
-            <a href="https://9d041lp0ml4dcw1j0b0gj9m629.hop.clickbank.net/" class="button">Learn More</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Daily Dose of Delicious Wellness</h1>
+            <p class="hero-subtitle">A Year-Round Journey to Radiant Health Through Nourishing Blends</p>
         </div>
     </section>
 
+    <!-- Benefits Section -->
     <section class="benefits">
-        <h2>Why Choose 365 Delicious Smoothies?</h2>
-        <ul>
-            <li>Supercharge Your Health with immune-boosting, anti-inflammatory, and gut-healing options.</li>
-            <li>Feel Energized with high-protein smoothies, morning kickstart blends, and hydrating recipes.</li>
-            <li>Indulge Guilt-Free with tropical, seasonal, and dessert-inspired flavors.</li>
-        </ul>
+        <div class="benefits-content">
+            <div class="benefit-card">
+                <h3>Why This Book?</h3>
+                <ul>
+                    <li>✓ 25 specialized chapters for every health goal</li>
+                    <li>✓ From weight loss to hormone balance</li>
+                    <li>✓ Quick recipes for busy lifestyles</li>
+                    <li>✓ Dietary-friendly options included</li>
+                    <li>✓ Full nutritional breakdowns</li>
+                </ul>
+            </div>
+            <div class="benefit-card">
+                <h3>You'll Achieve:</h3>
+                <ul>
+                    <li>✓ Increased energy levels</li>
+                    <li>✓ Better digestion & immunity</li>
+                    <li>✓ Natural weight management</li>
+                    <li>✓ Improved mental clarity</li>
+                    <li>✓ Delicious daily variety</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>Prices may vary depending on retailer and location.</p>
-        <p><small>Disclaimer: Some links on this page are affiliate links, and I may receive a commission if you make a purchase through them.</small></p>
-    </footer>
+    <!-- Product Cards -->
+    <section class="products">
+        <div class="product-grid">
+            <!-- eBook Card -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://via.placeholder.com/600x400/27ae60/ffffff?text=Ebook+Preview')"></div>
+                <div class="product-content">
+                    <h2>Instant Digital Access</h2>
+                    <p>Get all 365 recipes immediately in PDF format</p>
+                    <a href="https://payhip.com/b/k9d1g" class="btn ebook-btn">Download eBook Now</a>
+                </div>
+            </div>
 
+            <!-- Print Version Card -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://via.placeholder.com/600x400/2980b9/ffffff?text=Print+Book')"></div>
+                <div class="product-content">
+                    <h2>Premium Print Edition</h2>
+                    <p>Beautiful spiral-bound kitchen companion</p>
+                    <a href="https://amzn.to/4hOAtEW" class="btn print-btn">Order on Amazon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Banner -->
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Supercharge Your Results</h2>
+            <p>Pair your book with our 21-Day Smoothie Diet Program</p>
+            <p>Includes meal plans, shopping lists, and exclusive recipes</p>
+            <a href="https://9d041lp0ml4dcw1j0b0gj9m629.hop.clickbank.net/" class="btn bonus-btn">Get Weight Loss Program</a>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+        <p>*Prices may vary by region. This page contains affiliate links - we may earn a commission at no extra cost to you. Results may vary based on individual commitment and adherence to the programs.</p>
+    </div>
 </body>
 </html>
